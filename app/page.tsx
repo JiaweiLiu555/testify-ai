@@ -1,3 +1,3 @@
-import { Landing } from "@/components/Landing";
+import { redirect } from "next/navigation";
 
-export default function Home() { return <Landing />; }
+export default function Home() { redirect("/auth/sign-in"); }
