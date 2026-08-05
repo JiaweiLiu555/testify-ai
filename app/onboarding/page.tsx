@@ -16,7 +16,7 @@ export default function Onboarding() {
       <span className="section-index">CHOOSE YOUR FOCUS</span><h1>What do you want<br />to prepare for?</h1><p>Select one or more exams. Nothing is selected for you.</p>
       <label className="onboarding-search"><span>⌕</span><input aria-label="Search exams" value={query} onChange={event=>setQuery(event.target.value)} placeholder="Search SAT, AP Biology, AMC 10…" /></label>
       <div className="onboarding-options">{visible.map(exam => <button aria-pressed={selected.includes(exam.slug)} className={selected.includes(exam.slug)?"selected":""} onClick={()=>toggle(exam.slug)} key={exam.slug}><span className={`mini-mark ${exam.accent}`}>{exam.name.slice(0,2).toUpperCase()}</span><span><b>{exam.name}</b><small>{exam.category}</small></span><i>{selected.includes(exam.slug)?"✓":"+"}</i></button>)}</div>
-      <div className="onboarding-bottom"><span>{selected.length === 0 ? "Choose at least one exam to continue" : `${selected.length} exam${selected.length>1?"s":""} selected`}</span><Link aria-disabled={selected.length===0} className={`button ${selected.length===0?"disabled":""}`} href={selected.length?"/dashboard":"/onboarding"}>Continue <span>→</span></Link></div>
+      <div className="onboarding-bottom"><span>{selected.length === 0 ? "Choose at least one exam to continue" : `${selected.length} exam${selected.length>1?"s":""} selected`}</span><Link aria-disabled={selected.length===0} className={`button ${selected.length===0?"disabled":""}`} href={selected.length?`/onboarding/preferences?exams=${selected.join(",")}`:"/onboarding"}>Continue to goals <span>→</span></Link></div>
     </section>
   </main>;
 }
