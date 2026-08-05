@@ -1,0 +1,11 @@
+{
+  "name": "Testify AI",
+  "short_name": "Testify",
+  "description": "Focused, adaptive exam practice.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#f7f7f1",
+  "theme_color": "#173f36",
+  "icons": [{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}],
+  "shortcuts": [{"name":"Start practice","url":"/practice"},{"name":"Testify Alarm","url":"/alarm"}]
+}

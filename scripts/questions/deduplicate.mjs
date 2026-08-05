@@ -1,0 +1,5 @@
+import { readFile } from "node:fs/promises"; import { normalizePrompt, similarityHash } from "../../lib/questions.mjs";
+const file=process.argv[2]||new URL("../../data/seed-questions.json",import.meta.url);const questions=JSON.parse(await readFile(file,"utf8"));const seen=new Map();let duplicates=0;
+for(const q of questions){const hash=similarityHash(q.prompt);if(seen.has(hash)){duplicates++;console.error(`Exact normalized duplicate: ${seen.get(hash)} and ${q.stable_id}`)}else seen.set(hash,q.stable_id)}
+for(let i=0;i<questions.length;i++)for(let j=i+1;j<questions.length;j++){const a=new Set(normalizePrompt(questions[i].prompt).split(" ")),b=new Set(normalizePrompt(questions[j].prompt).split(" "));const overlap=[...a].filter(x=>b.has(x)).length/Math.max(a.size,b.size);if(overlap>.82&&similarityHash(questions[i].prompt)!==similarityHash(questions[j].prompt))console.warn(`Near-duplicate candidate (${overlap.toFixed(2)}): ${questions[i].stable_id} / ${questions[j].stable_id}`)}
+console.log(`Checked ${questions.length} questions; ${duplicates} exact duplicates.`);process.exitCode=duplicates?1:0;

@@ -1,0 +1,3 @@
+import type { Metadata } from "next"; import { Header } from "@/components/Header"; import { Catalog } from "@/components/Catalog";
+export const metadata: Metadata = { title:"Exam catalog", description:"Explore original practice for admissions tests, AP exams, and academic competitions." };
+export default function ExamsPage(){return <div className="app-bg"><Header/><main id="main-content" className="page-shell"><div className="page-intro"><div><span className="section-index">EXAM LIBRARY</span><h1>Find your next focus.</h1><p>Explore major exams and competition pathways by subject, organization, level, and format. Public catalog access never requires an account.</p></div></div><Catalog/></main></div>}

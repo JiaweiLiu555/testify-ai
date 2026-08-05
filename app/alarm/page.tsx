@@ -1,0 +1,2 @@
+import { Header } from "@/components/Header"; import { AlarmSetup } from "@/components/AlarmSetup";
+export default function Alarm(){return <div className="app-bg"><Header/><main id="main-content" className="page-shell"><div className="page-intro"><div><span className="section-index">TESTIFY ALARM</span><h1>Wake up with momentum.</h1><p>Complete a short set before dismissing the in-app alarm, with transparent delivery limits and an emergency exit that is always available.</p></div></div><AlarmSetup/></main></div>}

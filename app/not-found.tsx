@@ -1,0 +1,2 @@
+import Link from "next/link"; import { Header } from "@/components/Header";
+export default function NotFound(){return <div className="app-bg"><Header/><main id="main-content" className="legal-page"><span className="section-index">404</span><h1>That page missed the mark.</h1><p>The route may have moved, but your practice plan is still here.</p><Link className="button" href="/">Return home</Link></main></div>}

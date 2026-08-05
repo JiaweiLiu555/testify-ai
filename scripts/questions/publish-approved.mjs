@@ -1,0 +1,1 @@
+console.log("Dry-run publication gate: production publishing requires SUPABASE_SERVICE_ROLE_KEY, an approved review, valid license, successful validation, and a recorded audit event. No records changed.");

@@ -1,0 +1,4 @@
+import { readFile, writeFile, mkdir } from "node:fs/promises"; import { validateQuestion } from "../../lib/questions.mjs";
+const input=process.argv[2];if(!input)throw new Error("Usage: npm run questions:import -- path/to/questions.json");const batch=JSON.parse(await readFile(input,"utf8"));const report={batch_id:`import-${Date.now()}`,received:batch.length,accepted:[],rejected:[]};
+for(const q of batch){const result=validateQuestion(q);(result.ok?report.accepted:report.rejected).push(result.ok?{...q,similarity_hash:result.hash,status:q.status==="published"?"approved":q.status}:{stable_id:q.stable_id,errors:result.errors})}
+await mkdir("work/imports",{recursive:true});await writeFile(`work/imports/${report.batch_id}.json`,JSON.stringify(report,null,2));console.log(`Staged ${report.accepted.length}; rejected ${report.rejected.length}. Nothing was published.`);
