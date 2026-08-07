@@ -2,6 +2,10 @@
 
 Production-oriented MVP for focused standardized-test and academic-competition practice. The app includes a polished public catalog, student dashboard, interactive practice, Testify Alarm setup, content review operations, PWA shell, original reviewed seed content, and a scalable Supabase schema.
 
+Live demo: [testify-ai.netlify.app](https://testify-ai.netlify.app)
+
+Testify AI is open source under the [MIT License](LICENSE). Contributions are welcome; please read [CONTRIBUTING.md](CONTRIBUTING.md), especially the rules for original and licensed practice content.
+
 ## Local setup
 
 Requirements: Node.js 22.13+ and npm 10+.
